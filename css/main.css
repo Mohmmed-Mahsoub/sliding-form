@@ -1,0 +1,227 @@
+/* Start global */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.container {
+    width:800px;
+    text-align: center;
+    height: 85vh;
+    margin: 3rem auto;
+    box-shadow: 5px 10px 20px #a2a2a2, -10px -5px 20px #a2a2a2;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+h1 {
+    margin-top: 0;
+}
+/* End Global*/
+
+/*Start sign in/up form*/
+.sign-in, .sign-up {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.sign-in {
+    z-index: 2;
+}
+.sign-up {
+    z-index: 1;
+    opacity: 0;
+}
+
+.sign-in .social i, .sign-up .social i {
+    border: 1px solid #bdbcbc;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+}
+.sign-in .social i:before, .sign-up .social i:before {
+    padding: 1rem 0;
+    display: block;
+}
+.sign-in form input, .sign-up form input {
+    background-color: #eee;
+    border: none;
+    padding: 0.8rem 0.5rem;
+    width: 80%;
+    margin-bottom: 0.8rem;
+}
+.sign-in form a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin: 1rem 0;
+}
+.sign-in form button, .sign-up form button{
+    background-color: #FF4B2B;
+    border: 1px solid #FF4B2B;
+    border-radius: 20px;
+    border: 0;
+    padding: 0.8rem 3rem;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    outline: none;
+    transition: transform 80ms ease-in-out;
+}
+/*End sign in/up form*/
+
+/*start signIn/up show*/
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 5;
+    overflow: hidden;
+}
+.overlay .over {
+    width: 200%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: flex;
+    background: linear-gradient(to bottom right, #ff4b2b, #ff416a);
+    height: 85vh;
+}
+.signIn-show {
+    transform: translateX(-20%);
+}
+.signUp-show {
+    transform: translateX(0);
+}
+.signIn-show, .signUp-show {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.signIn-show p, .signUp-show p {
+    padding: 0 1rem;
+}
+.signIn-show button, .signUp-show button {
+    width: 140px;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 15px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    transition: transform 80ms ease-in-out;
+}
+/*End signIn/up show*/
+
+
+/*animation*/
+
+/*secondary-case*/
+.secondary-case .overlay {
+    right: 50%;
+    transition: all 1s;
+}
+.secondary-case .overlay .over {
+    transform: translateX(50%);
+    transition: all 1s;
+}
+.secondary-case .signIn-show {
+    transform: translateX(0);
+    transition: all 1s;
+}
+.secondary-case .signUp-show {
+    transform: translateX(20%);
+    transition: all 1s;
+}
+
+.secondary-case .sign-in {
+    left: 50%;
+    z-index: 1;
+    opacity: 0;
+    animation: fade-in 0.5s;
+    transition: all 1s;
+}
+.secondary-case .sign-up {
+    left: 50%;
+    z-index: 2;
+    opacity: 1;
+    animation: fade-out 0.5s;
+    transition: all 1s;
+}
+
+/*primary-case*/
+.primary-case .overlay {
+    right: 0;
+    transition: all 1s;
+}
+.primary-case .overlay .over {
+    transform: translateX(0);
+    transition: all 1s;
+}
+.primary-case .signIn-show {
+    transform: translateX(-20%);
+    transition: all 1s;
+}
+.primary-case .signUp-show {
+    transform: translateX(0);
+    transition: all 1s;
+}
+
+.primary-case .sign-in {
+    left: 0;
+    z-index: 2;
+    opacity: 1;
+    animation: fade-in 0.5s;
+    transition: all 1s;
+}
+.primary-case .sign-up {
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    animation: fade-out 0.5s;
+    transition: all 1s;
+}
+
+
+@keyframes fade-in {
+    0%,49.99% {
+      opacity: 1;
+      z-index: 2;
+    }
+    50%,100% {
+      opacity: 0;
+      z-index: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0%,49.99% {
+        opacity: 0;
+        z-index: 1;
+      }
+      50%,100% {
+        opacity: 1;
+        z-index: 2;
+      }
+  }
+
+  button:active {
+      transform: scale(0.9);
+  }
